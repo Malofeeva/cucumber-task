@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+}
+
+configurations {
+    cucumberRuntime.extendsFrom testRuntime
+}
+
+dependencies {
+    compileJava.options.encoding = 'UTF-8'
+    compileTestJava.options.encoding = 'UTF-8'
+    compile 'io.cucumber:cucumber-core:4.3.1'
+    compile 'io.cucumber:cucumber-java:4.3.1'
+    compile 'io.cucumber:cucumber-junit:4.3.1'
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.4.2'
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.4.2'
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
+}
